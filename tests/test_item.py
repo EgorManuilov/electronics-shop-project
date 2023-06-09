@@ -44,3 +44,11 @@ def test_string_to_number(item):
 
 def test_not_valid_string(item):
     assert item.string_to_number('один') == "Невозможно преобразовать в число"
+
+
+def test_repr(item):
+    assert repr(item) == "Item('Смартфон', 10000, 20)"
+
+
+def test_str(item):
+    assert str(item) == "Смартфон"
