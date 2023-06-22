@@ -5,10 +5,11 @@ from src.item import Item
 
 class MixinLangChange:
     def __init__(self, language="EN"):
-        self.language = language
+        self.__language = language
 
+    @property
     def language(self):
-        return self.language
+        return self.__language
 
     def change_lang(self):
 
@@ -17,9 +18,9 @@ class MixinLangChange:
         """
 
         if self.language == "EN":
-            self.language = "RU"
+            self.__language = "RU"
         elif self.language == "RU":
-            self.language = "EN"
+            self.__language = "EN"
         else:
             raise AttributeError("property 'language' of 'KeyBoard' object has no setter")
         return self
