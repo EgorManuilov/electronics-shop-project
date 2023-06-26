@@ -58,4 +58,3 @@ def test_instantiate_from_csv_error():
     Item.instantiate_from_csv()
     assert Item.instantiate_from_csv() is None
 
-
