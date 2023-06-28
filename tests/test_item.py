@@ -55,6 +55,16 @@ def test_str(item):
 
 
 def test_instantiate_from_csv_error():
+    Item.CSV_PATH = "error_path"
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv()
+
+
+def test_instantiate_from_csv():
     Item.instantiate_from_csv()
-    assert Item.instantiate_from_csv() is None
+    assert len(Item.all) == 5
+    item = Item.all[1]
+    assert item.name == "Ноутбук"
+    assert item.price == "1000"
+    assert item.quantity == "3"
 
